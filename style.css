@@ -1,0 +1,872 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root {
+    --navy: #183b63;
+    --blue: #6d9fc9;
+    --pink: #f4c6d7;
+    --white: #ffffff;
+    --ink: #294761;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* BACKGROUNDS */
+
+.page-one {
+    background: linear-gradient(135deg, #dbefff, #f8e5ef);
+}
+
+.page-two {
+    background: linear-gradient(135deg, #eaf5ff, #fceaf2);
+}
+
+.page-three {
+    background: linear-gradient(135deg, #dceaf9, #f7eaf1);
+}
+
+.page-four {
+    background: linear-gradient(135deg, #cde8f4, #fcecf2);
+}
+
+/* PAGE ONE */
+
+.hero-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.sorry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(75px, 18vw, 180px);
+    font-weight: 800;
+    color: var(--navy);
+    text-shadow: 5px 7px white;
+    animation: heartbeat 2s infinite;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #6386a7;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    margin: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.tiny-note {
+    margin-top: 30px;
+    color: #6888a4;
+}
+
+/* BUTTONS */
+
+.primary-button,
+.soft-button {
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.primary-button {
+    background: var(--navy);
+    color: white;
+    box-shadow: 0 10px 25px #183b6333;
+}
+
+.soft-button {
+    background: #f8dce7;
+    color: #744b62;
+}
+
+.primary-button:hover,
+.soft-button:hover {
+    transform: translateY(-4px);
+}
+
+/* STICKERS */
+
+.sticker {
+    position: absolute;
+    width: 110px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.cat-one {
+    left: 5%;
+    bottom: 8%;
+}
+
+.cat-two {
+    right: 5%;
+    top: 15%;
+}
+
+.bow-one {
+    top: 15%;
+    left: 15%;
+    width: 85px;
+}
+
+.fairy-lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* FLOATING HEARTS */
+
+.floating-hearts::before {
+    content: "♡ ♥ ♡ ♥ ♡ ♥";
+    position: fixed;
+    top: 35%;
+    left: 5%;
+    font-size: 25px;
+    color: #e49bb8;
+    animation: floating 6s infinite;
+    pointer-events: none;
+}
+
+/* COMMON CONTENT */
+
+.content-page {
+    min-height: 100vh;
+    padding: 25px 5%;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    color: #547895;
+    font-size: 14px;
+}
+
+.top-nav a {
+    padding: 9px 13px;
+    border-radius: 20px;
+    background: #ffffff80;
+}
+
+.paper-card {
+    max-width: 760px;
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+    background: #ffffffdd;
+    border-radius: 28px;
+    box-shadow: 0 18px 55px #1f49701f;
+    border: 1px solid white;
+}
+
+.paper-card h1,
+.section-heading h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    font-size: clamp(27px, 5vw, 45px);
+    margin: 15px 0;
+}
+
+/* PHOTO FRAME */
+
+.photo-frame {
+    position: relative;
+    overflow: hidden;
+    background: #e3f1fc;
+    border: 8px solid white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px #2f537322;
+}
+
+.single-photo {
+    width: min(100%, 310px);
+    aspect-ratio: 4 / 3;
+    margin: 25px auto;
+}
+
+.photo-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    text-align: center;
+    color: #5c7f9d;
+    background: repeating-linear-gradient(45deg,
+            #ffffff,
+            #ffffff 10px,
+            #e3f1fc 10px,
+            #e3f1fc 20px);
+}
+
+.photo-placeholder span {
+    font-size: 35px;
+    color: #d58da9;
+}
+
+.photo-placeholder small {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+/* APOLOGY PAGE */
+
+.apology-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.9;
+    max-width: 600px;
+    margin: 25px auto;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.response-message {
+    margin-top: 22px;
+    min-height: 30px;
+    color: #567c9b;
+    font-weight: bold;
+}
+
+.apology-cat {
+    left: 3%;
+    top: 25%;
+}
+
+.apology-bow {
+    right: 5%;
+    top: 12%;
+    width: 85px;
+}
+
+.sticker-kitkat {
+    right: 4%;
+    bottom: 8%;
+}
+
+/* LOVE QUESTION */
+
+.love-question-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 15px;
+    position: relative;
+}
+
+.love-question-card {
+    width: 100%;
+    max-width: 850px;
+    min-height: 480px;
+    padding: 45px 25px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .88);
+    border: 2px solid white;
+    box-shadow: 0 20px 60px #183b6326;
+    text-align: center;
+    position: relative;
+}
+
+.question-decoration {
+    font-size: 35px;
+    color: #e69ab8;
+    margin-bottom: 25px;
+    animation: heartbeat 2s infinite;
+}
+
+.love-question {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.5;
+    color: #183b63;
+    margin: 25px 0;
+}
+
+.question-subtitle {
+    font-size: 16px;
+    color: #6888a4;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.answer-area {
+    position: relative;
+    min-height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.yes-button,
+.no-button {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 38px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.yes-button {
+    background: #183b63;
+    color: white;
+}
+
+.yes-button:hover {
+    transform: scale(1.1);
+}
+
+.no-button {
+    background: #f8dce7;
+    color: #744b62;
+    position: relative;
+    z-index: 5;
+}
+
+/* YES RESPONSE */
+
+.yes-response {
+    margin-top: 35px;
+    animation: reveal .8s ease;
+}
+
+.yes-response h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: #d47fa1;
+    margin-bottom: 15px;
+}
+
+.yes-response p {
+    line-height: 1.8;
+    margin: 15px auto;
+}
+
+.forever-photo-frame {
+    position: relative;
+    width: min(100%, 320px);
+    aspect-ratio: 4 / 5;
+    margin: 25px auto;
+    border: 9px solid white;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #e3f1fc;
+    box-shadow: 0 12px 30px #183b6330;
+}
+
+.forever-photo-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.forever-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 15px;
+    background: #eaf5ff;
+    color: #547895;
+}
+
+.forever-photo-placeholder span {
+    font-size: 45px;
+    color: #d58da9;
+}
+
+.forever-photo-placeholder small {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.forever-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #183b63;
+    margin: 25px 0;
+}
+
+/* GALLERY HEADINGS */
+
+.section-heading {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.section-heading p {
+    margin-bottom: 12px;
+}
+
+.gallery-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: #183b63;
+    font-size: 27px;
+    margin: 40px 0 12px;
+}
+
+.gallery-description {
+    text-align: center;
+    color: #6785a0;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* PHOTO SLIDER */
+
+.slider-shell {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0 30px;
+    position: relative;
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 5%,
+            black 95%,
+            transparent);
+}
+
+.memory-track,
+.video-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.memory-group,
+.video-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 22px;
+    padding-right: 22px;
+}
+
+.track-left {
+    animation: gallery-movement 65s linear infinite;
+}
+
+.memory-track:hover,
+.video-track:hover,
+.video-track.video-playing {
+    animation-play-state: paused;
+}
+
+.memory-card {
+    width: 260px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.memory-frame {
+    width: 100%;
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+    border: 8px solid white;
+    border-radius: 22px;
+    background: #eaf4ff;
+    box-shadow: 0 8px 22px #274b7026;
+}
+
+.memory-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memory-caption {
+    color: #526e89;
+    font-family: 'Playfair Display', serif;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+/* VIDEO GALLERY */
+
+.video-card {
+    width: 250px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.video-frame {
+    width: 100%;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    border: 8px solid white;
+    border-radius: 22px;
+    background: #eaf4ff;
+    box-shadow: 0 8px 22px #274b7026;
+}
+
+.video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    background: #eaf4ff;
+}
+
+.video-placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #eaf4ff;
+    color: #57738f;
+    text-align: center;
+}
+
+.video-placeholder span {
+    font-size: 42px;
+    color: #d98da9;
+}
+
+.video-placeholder small {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.video-information {
+    padding: 10px 0;
+}
+
+.video-caption {
+    color: #526e89;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.video-duration {
+    color: #7891a9;
+    font-size: 12px;
+}
+
+/* FINAL PAGE */
+
+.final-letter {
+    max-width: 760px;
+    margin: 35px auto;
+    padding: 40px 25px;
+    text-align: center;
+    background: #ffffffdd;
+    border-radius: 26px;
+    box-shadow: 0 18px 55px #1f49701f;
+}
+
+.final-letter p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    line-height: 1.9;
+    margin: 20px 0;
+}
+
+.letter-heart {
+    color: #d58da9;
+    font-size: 40px;
+}
+
+.page-footer {
+    text-align: center;
+    margin: 30px;
+    color: #6d8da8;
+    font-size: 13px;
+}
+
+.sticker-heart {
+    left: 2%;
+    top: 15%;
+}
+
+.sticker-memories {
+    right: 2%;
+    top: 15%;
+    width: 130px;
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-35px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes gallery-movement {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .content-page {
+        padding: 20px 15px;
+    }
+
+    .top-nav {
+        font-size: 11px;
+    }
+
+    .paper-card {
+        padding: 30px 17px;
+    }
+
+    .apology-message {
+        font-size: 16px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .button-row button {
+        width: 100%;
+    }
+
+    .memory-card {
+        width: 205px;
+    }
+
+    .memory-frame {
+        height: 270px;
+    }
+
+    .video-card {
+        width: 195px;
+    }
+
+    .video-frame {
+        height: 340px;
+    }
+
+    .memory-group,
+    .video-group {
+        gap: 14px;
+        padding-right: 14px;
+    }
+
+    .gallery-title {
+        font-size: 22px;
+    }
+
+    .love-question-card {
+        padding: 35px 18px;
+    }
+
+    .love-question {
+        font-size: 29px;
+    }
+
+    .yes-button,
+    .no-button {
+        padding: 13px 27px;
+        font-size: 15px;
+    }
+
+    .cat-one,
+    .cat-two {
+        width: 75px;
+    }
+
+    .sticker-heart {
+        width: 65px;
+    }
+
+    .sticker-memories {
+        width: 75px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* =====================================
+   PAGE 4 - VIDEO SLIDER LEFT TO RIGHT
+===================================== */
+
+#videoGallery {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: video-move-right 75s linear infinite;
+    will-change: transform;
+}
+
+/* Keep both video groups together */
+
+#videoGallery .video-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 22px;
+    padding-right: 22px;
+}
+
+/* Move from left to right */
+
+@keyframes video-move-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Pause when mouse is over the gallery */
+
+#videoGallery:hover {
+    animation-play-state: paused;
+}
+
+/* Pause when a video is playing */
+
+#videoGallery.video-playing {
+    animation-play-state: paused;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    #videoGallery .video-group {
+        gap: 14px;
+        padding-right: 14px;
+    }
+}
