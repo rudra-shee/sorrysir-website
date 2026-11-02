@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const number = String(i).padStart(2, "0");
 
             const filename = "video-" + number + ".mp4";
-            const path = "assets/" + filename;
+            const path =  filename;
 
             const card = document.createElement("div");
             card.className = "video-card";
